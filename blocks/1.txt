@@ -1,0 +1,6 @@
+{
+    "name": "Igor",
+    "amount": 100,
+    "to": "Dmitriy",
+    "hash": ""
+}
