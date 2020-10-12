@@ -43,12 +43,3 @@ def generate_block(name, amount, to, last_hash=''):
             }
     with open(blockchain_dir + block_name, 'w') as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
-
-
-def main():
-    generate_block(1, 2, 3)
-    print(check_integrity())
-
-
-if __name__ == '__main__':
-    main()

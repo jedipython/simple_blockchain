@@ -1,13 +1,25 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for, redirect
+from block import *
 
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        sender = request.form.get('sender')
+        recipient = request.form.get('recipient')
+        amount = request.form.get('amount')
+        generate_block(sender, amount, recipient)
+        return redirect(url_for('index'))
     return render_template('index.html')
 
 
-if '__name__' == '__main__':
-    app.run(Debug=True)
+@app.route('/check')
+def chack():
+    pass
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
