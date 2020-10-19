@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    """Main page."""
     if request.method == 'POST':
         sender = request.form.get('sender')
         recipient = request.form.get('recipient')
@@ -18,6 +19,7 @@ def index():
 
 @app.route('/check', methods=['GET'])
 def check():
+    """Check integrity blocks."""
     results = check_integrity()
     return render_template('index.html', results=results)
 
