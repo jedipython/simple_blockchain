@@ -43,7 +43,24 @@
   <input type="text" id="amount" class="form-control" placeholder="Сумма" name='amount' value="{{ request.form.get('amount') }}" required>
   
   <button class="btn btn-lg btn-primary btn-block" type="submit">Отправить</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
 </form>
+  <form action="{{ url_for('check') }}" method="GET">
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Проверить</button>
+  </form>
+  {% block check %}
+
+      {% for result in results %}
+
+        <div class="result">
+
+          block {{ result['block'] }} : {{ result['result'] }}
+          </div>
+
+          {% endfor %}
+
+  {% endblock %}
+
+  <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+
 </body>
 </html>

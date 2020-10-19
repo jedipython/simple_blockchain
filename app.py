@@ -17,7 +17,7 @@ def index():
 
 
 @app.route('/check', methods=['GET'])
-def chack():
+def check():
     results = check_integrity()
     return render_template('index.html', results=results)
 
